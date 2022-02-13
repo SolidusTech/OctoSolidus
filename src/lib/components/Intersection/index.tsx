@@ -13,7 +13,7 @@ interface ItersectionProps {
  * @param {AnyStyledComponent} className - Pode ser estilizado com StyledComponents.
  */
 const Intersection: React.FC<ItersectionProps> = ({ children, className }) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(document.createElement('div'));
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,6 @@ const Intersection: React.FC<ItersectionProps> = ({ children, className }) => {
       { threshold: 0, rootMargin: '-150px' }
     );
 
-    // @ts-ignore
     observer.observe(ref.current);
 
     // return () => {

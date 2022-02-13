@@ -1,6 +1,6 @@
 {
   "name": "octo-solidus",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Jonatas Freire",
   "keywords": [
     "react",
@@ -27,6 +27,7 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-scripts": "5.0.0",
+    "styled-components": "^5.3.3",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
@@ -34,7 +35,8 @@
     "start": "react-scripts start",
     "build": "babel src/lib --out-dir dist --copy-files",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "rollup": "rollup -c"
   },
   "eslintConfig": {
     "extends": [
@@ -58,6 +60,11 @@
     "@babel/cli": "^7.17.0",
     "@babel/core": "^7.17.2",
     "@babel/preset-env": "^7.16.11",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@rollup/plugin-url": "^6.1.0",
     "@types/styled-components": "^5.1.22",
     "@typescript-eslint/eslint-plugin": "^5.11.0",
     "@typescript-eslint/parser": "^5.11.0",
@@ -71,6 +78,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "rollup": "^2.67.2"
   }
 }

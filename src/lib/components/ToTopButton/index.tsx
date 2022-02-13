@@ -42,7 +42,6 @@ const ToTopButton: React.FC<IToTopButtonProps> = ({
       { threshold: 0 }
     );
 
-    // @ts-ignore
     observer.observe(reference.current);
 
     // return () => {
