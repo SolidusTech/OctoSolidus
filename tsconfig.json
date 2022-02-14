@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
     "outDir": "types",
+    "rootDir": "./",
+    "declarationDir": ".",
     "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -18,6 +20,6 @@
     "jsx": "react-jsx",
     "declaration": true
   },
-  "include": ["src/lib"],
-  "exclude": ["node_modules", "dist", "example", "rollup.config.js"]
+  "include": ["./src/lib/**/*.ts", "./src/lib/**/*.tsx"],
+  "exclude": ["node_modules", "dist", "example", "rollup.config.js", "docs"]
 }
