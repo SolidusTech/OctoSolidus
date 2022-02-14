@@ -7,9 +7,12 @@
     "components"
   ],
   "main": "dist/components/index.js",
+  "module": "dist/components/index.js",
+  "typings": "typings/index.d.ts",
+  "types": "typings/index.d.ts",
   "files": [
-    "dist",
-    "README.md"
+    "components",
+    "functions"
   ],
   "repository": {
     "type": "git",
@@ -36,6 +39,7 @@
     "build": "babel src/lib --out-dir dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
     "rollup": "rollup -c"
   },
   "eslintConfig": {
