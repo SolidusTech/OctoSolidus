@@ -1,1 +1,1 @@
-import * as KeyFrams from './keyframs';
+export * as KeyFrams from './keyframs';

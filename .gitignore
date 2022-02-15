@@ -13,6 +13,7 @@
 /dist
 /components
 /functions
+/styles
 
 # misc
 .DS_Store

@@ -18,15 +18,7 @@ export default [
         format: 'cjs',
       },
     ],
-    plugins: [
-      commonjs(),
-      url(),
-      nodeResolve(),
-      babel({
-        exclude: 'node_modules/**',
-      }),
-      typescript(),
-    ],
+    plugins: [commonjs(), url(), nodeResolve(), babel(), typescript()],
     external: ['react', 'react-dom'],
   },
   {
@@ -46,20 +38,32 @@ export default [
         format: 'cjs',
       },
     ],
-    plugins: [
-      commonjs(),
-      url(),
-      nodeResolve(),
-      babel({
-        exclude: 'node_modules/**',
-      }),
-      typescript({}),
-    ],
+    plugins: [commonjs(), url(), nodeResolve(), babel(), typescript({})],
     external: ['react', 'react-dom'],
   },
   {
     input: './src/lib/functions/index.ts',
     output: [{ file: 'functions/index.d.ts', format: 'es' }],
+    plugins: [dts()],
+  },
+  {
+    input: 'src/lib/styles/index.ts',
+    output: [
+      {
+        file: './styles/index.js',
+        format: 'esm',
+      },
+      {
+        file: './styles/index.cjs.js',
+        format: 'cjs',
+      },
+    ],
+    plugins: [commonjs(), url(), nodeResolve(), babel(), typescript()],
+    external: ['react', 'react-dom'],
+  },
+  {
+    input: './src/lib/styles/index.ts',
+    output: [{ file: 'styles/index.d.ts', format: 'es' }],
     plugins: [dts()],
   },
 ];
