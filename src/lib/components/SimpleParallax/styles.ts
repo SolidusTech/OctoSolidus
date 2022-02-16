@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 interface IParalaxProps {
   Image: string;
+  backgroundColor: string;
 }
 
 export const Container = styled.div<IParalaxProps>`
-  background-color: ${(props) => props.theme.theme.mainTheme};
+  background-color: ${(props) => props.backgroundColor};
   background-image: url(${(props) => props.Image});
   height: 300px;
   width: 100%;
