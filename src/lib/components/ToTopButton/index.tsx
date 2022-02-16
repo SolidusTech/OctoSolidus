@@ -9,6 +9,7 @@ interface IToTopButtonProps {
   idElement: string;
   reference: any;
   height: number;
+  hoverColor?: string;
   className?: AnyStyledComponent;
 }
 
@@ -26,6 +27,7 @@ const ToTopButton: React.FC<IToTopButtonProps> = ({
   idElement,
   reference,
   className,
+  hoverColor = 'grey',
   height,
 }) => {
   const [visible, setVisible] = useState(false);
@@ -53,7 +55,12 @@ const ToTopButton: React.FC<IToTopButtonProps> = ({
   }, [reference, height]);
 
   return (
-    <S.ToTop href={idElement} className={className} isVisible={visible}>
+    <S.ToTop
+      href={idElement}
+      className={className}
+      isVisible={visible}
+      hoverColor={hoverColor}
+    >
       <MdKeyboardArrowUp />
     </S.ToTop>
   );
