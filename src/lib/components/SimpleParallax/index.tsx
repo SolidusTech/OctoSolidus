@@ -1,11 +1,10 @@
-import { ReactElement } from 'react';
 import { AnyStyledComponent } from 'styled-components';
 
 import * as S from './styles';
 
 interface IParalaxProps {
   imageUrl: string;
-  backgroundColor: string;
+  backgroundColor?: string;
   className?: AnyStyledComponent;
 }
 
@@ -19,7 +18,7 @@ const SimpleParallax: React.FC<IParalaxProps> = ({
   imageUrl,
   backgroundColor = 'black',
   className,
-}): ReactElement => {
+}) => {
   return (
     <S.Container
       className={className}
