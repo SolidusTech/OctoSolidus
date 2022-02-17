@@ -5,65 +5,43 @@ import { babel } from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import dts from 'rollup-plugin-dts';
 
-export default [
-  {
-    input: 'src/lib/components/index.ts',
-    output: [
-      {
-        file: './components/index.js',
-        format: 'esm',
-      },
-      {
-        file: './components/index.cjs.js',
-        format: 'cjs',
-      },
-    ],
-    plugins: [commonjs(), url(), nodeResolve(), babel(), typescript()],
-    external: ['react', 'react-dom'],
-  },
-  {
-    input: './src/lib/components/index.ts',
-    output: [{ file: 'components/index.d.ts', format: 'es' }],
-    plugins: [dts()],
-  },
-  {
-    input: 'src/lib/functions/index.ts',
-    output: [
-      {
-        file: './functions/index.js',
-        format: 'esm',
-      },
-      {
-        file: './functions/index.cjs.js',
-        format: 'cjs',
-      },
-    ],
-    plugins: [commonjs(), url(), nodeResolve(), babel(), typescript({})],
-    external: ['react', 'react-dom'],
-  },
-  {
-    input: './src/lib/functions/index.ts',
-    output: [{ file: 'functions/index.d.ts', format: 'es' }],
-    plugins: [dts()],
-  },
-  {
-    input: 'src/lib/styles/index.ts',
-    output: [
-      {
-        file: './styles/index.js',
-        format: 'esm',
-      },
-      {
-        file: './styles/index.cjs.js',
-        format: 'cjs',
-      },
-    ],
-    plugins: [commonjs(), url(), nodeResolve(), babel(), typescript()],
-    external: ['react', 'react-dom'],
-  },
-  {
-    input: './src/lib/styles/index.ts',
-    output: [{ file: 'styles/index.d.ts', format: 'es' }],
-    plugins: [dts()],
-  },
-];
+const pastas = ['components', 'functions', 'styles'];
+
+const config = pastas.map((pasta) => {
+  return (
+    {
+      input: `src/lib/${pasta}/index.ts`,
+      output: [
+        {
+          file: `./${pasta}/index.js`,
+          format: 'esm',
+        },
+        {
+          file: `./${pasta}/index.cjs.js`,
+          format: 'cjs',
+        },
+      ],
+      plugins: [
+        nodeResolve(),
+        babel({ presets: ['@babel/preset-env'], exclude: 'node_modules/**' }),
+        url(),
+        typescript(),
+        commonjs({
+          include: 'node_modules/**',
+          namedExports: {
+            'node_modules/react-is/index.js': ['isValidElementType'],
+          },
+        }),
+      ],
+      external: ['react', 'react-dom', 'styled-components'],
+      globals: { 'styled-components': 'styled' },
+    },
+    {
+      input: `./src/lib/${pasta}/index.ts`,
+      output: [{ file: `${pasta}/index.d.ts`, format: 'es' }],
+      plugins: [dts()],
+    }
+  );
+});
+
+export default config;
