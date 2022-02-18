@@ -20,6 +20,6 @@
     "jsx": "react-jsx",
     "declaration": true
   },
-  "include": ["./src/lib/**/*.ts", "./src/lib/**/*.tsx"],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
   "exclude": ["node_modules", "dist", "example", "rollup.config.js", "docs"]
 }

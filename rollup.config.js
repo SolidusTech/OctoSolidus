@@ -8,40 +8,41 @@ import dts from 'rollup-plugin-dts';
 const pastas = ['components', 'functions', 'styles'];
 
 const config = pastas.map((pasta) => {
-  return (
-    {
-      input: `src/lib/${pasta}/index.ts`,
-      output: [
-        {
-          file: `./${pasta}/index.js`,
-          format: 'esm',
+  return {
+    input: `src/${pasta}/index.ts`,
+    output: [
+      {
+        file: `./${pasta}/index.js`,
+        format: 'esm',
+      },
+      {
+        file: `./${pasta}/index.cjs.js`,
+        format: 'cjs',
+      },
+    ],
+    plugins: [
+      nodeResolve(),
+      babel({ presets: ['@babel/preset-env'], exclude: 'node_modules/**' }),
+      url(),
+      typescript(),
+      commonjs({
+        include: 'node_modules/**',
+        namedExports: {
+          'node_modules/react-is/index.js': ['isValidElementType'],
         },
-        {
-          file: `./${pasta}/index.cjs.js`,
-          format: 'cjs',
-        },
-      ],
-      plugins: [
-        nodeResolve(),
-        babel({ presets: ['@babel/preset-env'], exclude: 'node_modules/**' }),
-        url(),
-        typescript(),
-        commonjs({
-          include: 'node_modules/**',
-          namedExports: {
-            'node_modules/react-is/index.js': ['isValidElementType'],
-          },
-        }),
-      ],
-      external: ['react', 'react-dom', 'styled-components'],
-      globals: { 'styled-components': 'styled' },
-    },
-    {
-      input: `./src/lib/${pasta}/index.ts`,
-      output: [{ file: `${pasta}/index.d.ts`, format: 'es' }],
-      plugins: [dts()],
-    }
-  );
+      }),
+    ],
+    external: ['react', 'react-dom', 'styled-components'],
+    globals: { 'styled-components': 'styled' },
+  };
 });
 
-export default config;
+const configTypes = pastas.map((pasta) => {
+  return {
+    input: `./src/${pasta}/index.ts`,
+    output: [{ file: `${pasta}/index.d.ts`, format: 'es' }],
+    plugins: [dts()],
+  };
+});
+
+export default [...config, ...configTypes];
