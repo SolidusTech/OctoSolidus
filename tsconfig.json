@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "types",
     "rootDir": "./",
     "declarationDir": ".",
     "target": "esnext",
