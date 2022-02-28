@@ -4,7 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import Menu from '../components/Menu';
 
 import '../styles/globals.css';
-import { defaultTheme } from './styles/theme';
+import { defaultTheme } from '../styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
