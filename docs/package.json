@@ -9,11 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.4.2",
     "@mui/material": "^5.4.3",
     "@mui/styled-engine-sc": "^5.4.2",
+=======
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@mui/material": "^5.4.2",
+>>>>>>> 9ccad1ec26bfa3790eac9e31c4920ca033666040
     "next": "12.1.0",
     "octo-solidus": "^0.1.19",
     "react": "17.0.2",
