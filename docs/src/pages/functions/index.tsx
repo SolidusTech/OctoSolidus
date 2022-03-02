@@ -1,9 +1,10 @@
 import type { NextPage } from 'next';
+import { INextPage } from 'types/INextPage';
 
-const FunctionsPage: NextPage = () => {
+const FunctionsPage: NextPage<INextPage> = ({ t }) => {
   return (
     <div>
-      <p>Functions</p>
+      <p>{t('Functions.title')}</p>
     </div>
   );
 };
