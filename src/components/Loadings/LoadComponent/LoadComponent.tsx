@@ -1,25 +1,20 @@
-import { AnyStyledComponent } from 'styled-components';
 import React from 'react';
-import LoadingCircle from '../LoadingCircle';
-import ErrorMessage from '../../ErrorMessage';
-import * as S from './styles';
+import LoadingCircle from '../LoadingCircle/LoadingCircle';
+import ErrorMessage from '../../ErrorMessage/ErrorMessage';
 
-interface LoadComponentProps {
-  isError?: string;
-  isLoading?: boolean;
-  children: React.ReactNode;
-  className?: AnyStyledComponent;
-}
+import { ILoadComponentProps } from './LoadComponent.types';
+
+import * as S from './styles';
 
 /**
  * Se caso estiver carregando, exibi tela de loadin, caso erro, tela de erro, ou exibe element normal
- * @param {string} isError - Mensagem de erro para ser exibido.
+ * @param {string} errorMessage - Mensagem de erro para ser exibido.
  * @param {boolean} isLoading - Se a tela esta em loading.
  * @param {element} children - Elemento a ser exibido após verificações.
  * @param {AnyStyledComponent} className - Pode ser estilizado com StyledComponents.
  */
-const LoadComponent: React.FC<LoadComponentProps> = ({
-  isError,
+const LoadComponent: React.FC<ILoadComponentProps> = ({
+  errorMessage,
   isLoading = false,
   children,
   className,
@@ -32,10 +27,10 @@ const LoadComponent: React.FC<LoadComponentProps> = ({
     );
   }
 
-  if (isError) {
+  if (errorMessage) {
     return (
       <S.Container className={className}>
-        <ErrorMessage message={isError} />
+        <ErrorMessage message={errorMessage} />
       </S.Container>
     );
   }

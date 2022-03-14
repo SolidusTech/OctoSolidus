@@ -1,12 +1,5 @@
-import { AnyStyledComponent } from 'styled-components';
-
+import { IParalaxProps } from './SimpleParallax.types';
 import * as S from './styles';
-
-interface IParalaxProps {
-  imageUrl: string;
-  backgroundColor?: string;
-  className?: AnyStyledComponent;
-}
 
 /**
  * Adiciona uma div com uma imagem de background com efeito de parallax.

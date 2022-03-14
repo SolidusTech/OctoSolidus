@@ -1,18 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
-
-import { AnyStyledComponent } from 'styled-components';
+import { IIntersectionProps } from './Intersection.types';
 
 import * as S from './styles';
-
-interface ItersectionProps {
-  className?: AnyStyledComponent;
-}
 
 /**
  * Adiciona uma div, quando o scroll chegar na div, executa o efeito para mostrar a div.
  * @param {AnyStyledComponent} className - Pode ser estilizado com StyledComponents.
  */
-const Intersection: React.FC<ItersectionProps> = ({ children, className }) => {
+const Intersection: React.FC<IIntersectionProps> = ({
+  children,
+  className,
+}) => {
   const ref = useRef<HTMLDivElement>(document.createElement('div'));
   const [visible, setVisible] = useState(false);
 

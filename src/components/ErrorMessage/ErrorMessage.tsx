@@ -1,13 +1,7 @@
-import { AnyStyledComponent } from 'styled-components';
 import { MdErrorOutline } from 'react-icons/md';
+import { IErrorMessageProps } from './ErrorMessage.types';
 
 import * as S from './styles';
-
-interface IMessage {
-  className?: AnyStyledComponent;
-  message?: string;
-  iconSize?: number;
-}
 
 /**
  * Adiciona uma div com mensagem de erro personalizada.
@@ -15,11 +9,11 @@ interface IMessage {
  * @param {number} iconSize - Tamanho do icone a ser exibido.
  * @param {AnyStyledComponent} className - Pode ser estilizado com StyledComponents.
  */
-const ErrorMessage: React.FC<IMessage> = ({
+const ErrorMessage: React.FC<IErrorMessageProps> = ({
   message = 'Erro',
   iconSize = 70,
   className,
-}) => {
+}): JSX.Element => {
   return (
     <S.Container className={className}>
       <MdErrorOutline size={iconSize} />

@@ -1,17 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-import { AnyStyledComponent } from 'styled-components';
 import { MdKeyboardArrowUp } from 'react-icons/md';
 
 import * as S from './styles';
-
-interface IToTopButtonProps {
-  idElement: string;
-  reference: any;
-  height: number;
-  hoverColor?: string;
-  className?: AnyStyledComponent;
-}
+import { IToTopButtonProps } from './ToTopButton.types';
 
 /**
  * Botão que leva ao topo da página.
