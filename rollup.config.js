@@ -5,7 +5,7 @@ import { babel } from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import dts from 'rollup-plugin-dts';
 
-const pastas = ['components', 'functions', 'styles'];
+const pastas = ['components', 'modules', 'utils', 'styles'];
 
 const config = pastas.map((pasta) => {
   return {

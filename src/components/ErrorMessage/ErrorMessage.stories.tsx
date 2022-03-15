@@ -4,6 +4,10 @@ import ErrorMessage from './ErrorMessage';
 export default {
   title: 'Components/ErrorMessage',
   component: ErrorMessage,
+  argTypes: {
+    children: { table: { disable: true } },
+    className: { table: { disable: true } },
+  },
 } as ComponentMeta<typeof ErrorMessage>;
 
 const Template: ComponentStory<typeof ErrorMessage> = ({

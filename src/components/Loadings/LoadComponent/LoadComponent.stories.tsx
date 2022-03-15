@@ -4,6 +4,10 @@ import LoadComponent from './LoadComponent';
 export default {
   title: 'Components/Loadings/LoadComponent',
   component: LoadComponent,
+  argTypes: {
+    children: { table: { disable: true } },
+    className: { table: { disable: true } },
+  },
 } as ComponentMeta<typeof LoadComponent>;
 
 const Template: ComponentStory<typeof LoadComponent> = ({
