@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Modal, ModalProvider, useModal } from './Modal';
+import Modal from 'modules/Modal/components/Modal';
+import { ModalProvider, useModal } from './store/Modal.Provider';
 
 export default {
   title: 'Modules/Modal',

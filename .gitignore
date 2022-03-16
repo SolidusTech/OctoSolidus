@@ -15,6 +15,8 @@
 /components
 /functions
 /styles
+/utils
+/modules
 
 # misc
 .DS_Store
